@@ -4,7 +4,8 @@ import {SurveyFormData} from './classes/SurveyFormData';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html'
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
   formData = window.localStorage.getItem('surveyForm') ? JSON.parse(window.localStorage.getItem('surveyForm')) : new SurveyFormData();
