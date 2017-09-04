@@ -9,6 +9,7 @@ import {SurveyFormData} from './classes/SurveyFormData';
 })
 export class AppComponent {
   formData = window.localStorage.getItem('surveyForm') ? JSON.parse(window.localStorage.getItem('surveyForm')) : new SurveyFormData();
+
   minDate = new Date(1900, 0, 1);
   maxDate = new Date(1999, 0, 1);
   togglePrint = false;
@@ -32,11 +33,13 @@ export class AppComponent {
       Validators.pattern(/^\D*(?:\d\D*){10}$/)]),
     pesel: new FormControl(this.formData.pesel, [
       Validators.pattern(/^\D*(?:\d\D*){11}$/)]),
-    birthDate: new FormControl(new Date(this.formData.birthDate)),
+    //with only new Date(this.formData.birthDate) it will work as if this field is required for some reason
+    birthDate: new FormControl(this.formData.birthDate ? new Date(this.formData.birthDate) : null),
     rating: new FormControl(this.formData.rating)
   });
 
   onSubmit() {
+    this.formData = this.surveyForm.value;
     const data = JSON.stringify(this.surveyForm.value);
 
     window.localStorage.setItem('surveyForm', data);
