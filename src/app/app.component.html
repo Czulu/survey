@@ -1,15 +1,105 @@
 <md-card>
-  <form class="survey-form">
-    <md-form-field class="field-full-width">
-      <input mdInput placeholder="Email" [formControl]="emailFormControl">
-      <md-error *ngIf="emailFormControl.hasError('pattern')">
-        Please enter a valid email address
-      </md-error>
-      <md-error *ngIf="emailFormControl.hasError('required')">
-        Email is <strong>required</strong>
-      </md-error>
-    </md-form-field>
-  </form>
+  <md-card-title>Survey Form</md-card-title>
+  <md-card-content>
+    <form class="survey-form" [formGroup]="surveyForm" novalidate>
+      <table class="full-width" cellspacing="0">
+        <tr>
+          <td>
+            <md-form-field class="full-width">
+              <input mdInput placeholder="First name" formControlName="firstName">
+              <md-error *ngIf="surveyForm.get('firstName').hasError('required')">
+                First name is required
+              </md-error>
+            </md-form-field>
+          </td>
+          <td>
+            <md-form-field class="full-width">
+              <input mdInput placeholder="Last name" formControlName="lastName">
+              <md-error *ngIf="surveyForm.get('lastName').hasError('required')">
+                Last name is required
+              </md-error>
+            </md-form-field>
+          </td>
+        </tr>
+      </table>
+      <table class="full-width" cellspacing="0">
+        <tr>
+          <td>
+            <md-form-field class="full-width">
+              <input mdInput placeholder="Email" formControlName="email">
+              <md-error *ngIf="surveyForm.get('email').hasError('required')">
+                Email address is required
+              </md-error>
+              <md-error *ngIf="surveyForm.get('email').hasError('pattern')">
+                Please enter a valid email address
+              </md-error>
+            </md-form-field>
+          </td>
+          <td>
+            <md-form-field class="full-width">
+              <input type="tel" mdInput placeholder="Phone" formControlName="phone">
+              <md-error *ngIf="surveyForm.get('phone').hasError('required')">
+                Phone Number is required
+              </md-error>
+              <md-error *ngIf="surveyForm.get('phone').hasError('pattern')">
+                Please enter a valid phone number
+              </md-error>
+            </md-form-field>
+          </td>
+        </tr>
+      </table>
+      <table class="full-width" cellspacing="0">
+        <tr>
+          <td>
+            <md-form-field class="full-width">
+              <input #nip type="number" maxlength="10" mdInput formControlName="nip" placeholder="NIP">
+              <md-hint align="end">{{nip.value.length}} / 10</md-hint>
+              <md-error *ngIf="surveyForm.get('nip').hasError('pattern')">
+                Please enter valid NIP number
+              </md-error>
+            </md-form-field>
+          </td>
+          <td>
+            <md-form-field class="full-width">
+              <input #pesel type="number" maxlength="11" mdInput formControlName="pesel" placeholder="PESEL">
+              <md-hint align="end">{{pesel.value.length}} / 11</md-hint>
+              <md-error *ngIf="surveyForm.get('pesel').hasError('pattern')">
+                Please enter valid PESEL number
+              </md-error>
+            </md-form-field>
+          </td>
+        </tr>
+      </table>
+      <table class="full-width" cellspacing="0">
+        <tr>
+          <td>
+            <md-form-field class="full-width">
+              <input mdInput placeholder="City" formControlName="city">
+              <md-error *ngIf="surveyForm.get('city').hasError('required')">
+                City name is required
+              </md-error>
+            </md-form-field>
+          </td>
+          <td>
+            <md-form-field class="full-width">
+              <input readonly (click)="picker.open()" [min]="minDate" [max]="maxDate" mdInput [mdDatepicker]="picker" placeholder="Date of Birth" formControlName="birthDate">
+              <md-datepicker-toggle mdSuffix [for]="picker"></md-datepicker-toggle>
+              <md-datepicker #picker></md-datepicker>
+            </md-form-field>
+          </td>
+          <td>
+            <md-form-field class="full-width">
+              <input mdInput #postalCode maxlength="6" placeholder="Postal Code" formControlName="postalCode">
+              <md-hint align="end">{{postalCode.value.length}} / 6</md-hint>
+              <md-error *ngIf="surveyForm.get('postalCode').hasError('pattern')">
+                Please enter valid postal code
+              </md-error>
+            </md-form-field>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </md-card-content>
 </md-card>
 
 
