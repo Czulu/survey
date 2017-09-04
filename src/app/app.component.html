@@ -1,7 +1,7 @@
 <md-card>
   <md-card-title>Survey Form</md-card-title>
   <md-card-content>
-    <form class="survey-form" [formGroup]="surveyForm" novalidate>
+    <form (ngSubmit)="onSubmit()" class="survey-form" [formGroup]="surveyForm" novalidate>
       <div class="container">
         <div class="row">
           <div class="col-md-6 col-sm-12">
@@ -92,6 +92,8 @@
           </div>
         </div>
       </div>
+      <button [disabled]="surveyForm.pristine || surveyForm.invalid" md-raised-button color="primary">Save</button>
+      <button type="button" md-raised-button>Display for printing</button>
     </form>
   </md-card-content>
 </md-card>

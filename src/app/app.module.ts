@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {MdInputModule, MdCardModule, MdDatepickerModule, MdNativeDateModule} from '@angular/material';
+import {MdButtonModule, MdInputModule, MdCardModule, MdDatepickerModule, MdNativeDateModule} from '@angular/material';
 import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
@@ -15,6 +15,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     MdCardModule,
     ReactiveFormsModule,
     FormsModule,
+    MdButtonModule,
     BrowserAnimationsModule,
     MdDatepickerModule,
     MdNativeDateModule
