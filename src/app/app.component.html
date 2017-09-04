@@ -2,29 +2,27 @@
   <md-card-title>Survey Form</md-card-title>
   <md-card-content>
     <form class="survey-form" [formGroup]="surveyForm" novalidate>
-      <table class="full-width" cellspacing="0">
-        <tr>
-          <td>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-sm-12">
             <md-form-field class="full-width">
               <input mdInput placeholder="First name" formControlName="firstName">
               <md-error *ngIf="surveyForm.get('firstName').hasError('required')">
                 First name is required
               </md-error>
             </md-form-field>
-          </td>
-          <td>
+          </div>
+          <div class="col-md-6 col-sm-12">
             <md-form-field class="full-width">
               <input mdInput placeholder="Last name" formControlName="lastName">
               <md-error *ngIf="surveyForm.get('lastName').hasError('required')">
                 Last name is required
               </md-error>
             </md-form-field>
-          </td>
-        </tr>
-      </table>
-      <table class="full-width" cellspacing="0">
-        <tr>
-          <td>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-sm-12">
             <md-form-field class="full-width">
               <input mdInput placeholder="Email" formControlName="email">
               <md-error *ngIf="surveyForm.get('email').hasError('required')">
@@ -34,8 +32,8 @@
                 Please enter a valid email address
               </md-error>
             </md-form-field>
-          </td>
-          <td>
+          </div>
+          <div class="col-md-6 col-sm-12">
             <md-form-field class="full-width">
               <input type="tel" mdInput placeholder="Phone" formControlName="phone">
               <md-error *ngIf="surveyForm.get('phone').hasError('required')">
@@ -45,12 +43,10 @@
                 Please enter a valid phone number
               </md-error>
             </md-form-field>
-          </td>
-        </tr>
-      </table>
-      <table class="full-width" cellspacing="0">
-        <tr>
-          <td>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-sm-12">
             <md-form-field class="full-width">
               <input #nip type="number" maxlength="10" mdInput formControlName="nip" placeholder="NIP">
               <md-hint align="end">{{nip.value.length}} / 10</md-hint>
@@ -58,8 +54,8 @@
                 Please enter valid NIP number
               </md-error>
             </md-form-field>
-          </td>
-          <td>
+          </div>
+          <div class="col-md-6 col-sm-12">
             <md-form-field class="full-width">
               <input #pesel type="number" maxlength="11" mdInput formControlName="pesel" placeholder="PESEL">
               <md-hint align="end">{{pesel.value.length}} / 11</md-hint>
@@ -67,27 +63,25 @@
                 Please enter valid PESEL number
               </md-error>
             </md-form-field>
-          </td>
-        </tr>
-      </table>
-      <table class="full-width" cellspacing="0">
-        <tr>
-          <td>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 col-sm-12">
             <md-form-field class="full-width">
               <input mdInput placeholder="City" formControlName="city">
               <md-error *ngIf="surveyForm.get('city').hasError('required')">
                 City name is required
               </md-error>
             </md-form-field>
-          </td>
-          <td>
+          </div>
+          <div class="col-md-4 col-sm-12">
             <md-form-field class="full-width">
               <input readonly (click)="picker.open()" [min]="minDate" [max]="maxDate" mdInput [mdDatepicker]="picker" placeholder="Date of Birth" formControlName="birthDate">
               <md-datepicker-toggle mdSuffix [for]="picker"></md-datepicker-toggle>
               <md-datepicker #picker></md-datepicker>
             </md-form-field>
-          </td>
-          <td>
+          </div>
+          <div class="col-md-4 col-sm-12">
             <md-form-field class="full-width">
               <input mdInput #postalCode maxlength="6" placeholder="Postal Code" formControlName="postalCode">
               <md-hint align="end">{{postalCode.value.length}} / 6</md-hint>
@@ -95,9 +89,9 @@
                 Please enter valid postal code
               </md-error>
             </md-form-field>
-          </td>
-        </tr>
-      </table>
+          </div>
+        </div>
+      </div>
     </form>
   </md-card-content>
 </md-card>
