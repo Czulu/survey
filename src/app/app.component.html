@@ -6,7 +6,7 @@
         <div class="row">
           <div class="col-md-6 col-sm-12">
             <md-form-field class="full-width">
-              <input mdInput placeholder="First name" formControlName="firstName">
+              <input mdInput placeholder="First name*" formControlName="firstName">
               <md-error *ngIf="surveyForm.get('firstName').hasError('required')">
                 First name is required
               </md-error>
@@ -14,7 +14,7 @@
           </div>
           <div class="col-md-6 col-sm-12">
             <md-form-field class="full-width">
-              <input mdInput placeholder="Last name" formControlName="lastName">
+              <input mdInput placeholder="Last name*" formControlName="lastName">
               <md-error *ngIf="surveyForm.get('lastName').hasError('required')">
                 Last name is required
               </md-error>
@@ -24,7 +24,7 @@
         <div class="row">
           <div class="col-md-6 col-sm-12">
             <md-form-field class="full-width">
-              <input mdInput placeholder="Email" formControlName="email">
+              <input mdInput placeholder="Email*" formControlName="email">
               <md-error *ngIf="surveyForm.get('email').hasError('required')">
                 Email address is required
               </md-error>
@@ -35,7 +35,7 @@
           </div>
           <div class="col-md-6 col-sm-12">
             <md-form-field class="full-width">
-              <input type="tel" mdInput placeholder="Phone" formControlName="phone">
+              <input type="tel" mdInput placeholder="Phone*" formControlName="phone">
               <md-error *ngIf="surveyForm.get('phone').hasError('required')">
                 Phone Number is required
               </md-error>
@@ -68,7 +68,7 @@
         <div class="row">
           <div class="col-md-4 col-sm-12">
             <md-form-field class="full-width">
-              <input mdInput placeholder="City" formControlName="city">
+              <input mdInput placeholder="City*" formControlName="city">
               <md-error *ngIf="surveyForm.get('city').hasError('required')">
                 City name is required
               </md-error>
