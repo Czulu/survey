@@ -8,4 +8,5 @@ export class SurveyFormData {
   public postalCode = '';
   public phone = '';
   public birthDate = '';
+  public rating = 0;
 }

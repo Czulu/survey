@@ -1,7 +1,7 @@
 <md-card>
   <md-card-title>Survey Form</md-card-title>
   <md-card-content>
-    <form (ngSubmit)="onSubmit()" class="survey-form" [formGroup]="surveyForm" novalidate>
+    <form *ngIf="!togglePrint" (ngSubmit)="onSubmit()" class="survey-form" [formGroup]="surveyForm" novalidate>
       <div class="container">
         <div class="row">
           <div class="col-md-6 col-sm-12">
@@ -91,10 +91,36 @@
             </md-form-field>
           </div>
         </div>
+        <div class="row">
+          <div class="slider col-sm-12">
+            <h5>Rating</h5>
+            <md-slider
+              (change)="sliderChange($event)"
+              [max]="10"
+              [min]="0"
+              [step]="1"
+              [thumb-label]="true"
+              [value]="formData.rating">
+            </md-slider>
+          </div>
+        </div>
       </div>
       <button [disabled]="surveyForm.pristine || surveyForm.invalid" md-raised-button color="primary">Save</button>
-      <button type="button" md-raised-button>Display for printing</button>
+      <button (click)="togglePrint = !togglePrint" type="button" md-raised-button>Display for printing</button>
     </form>
+    <ul *ngIf="togglePrint">
+      <li>First Name: {{formData.email}}</li>
+      <li>Last Name: {{formData.lastName}}</li>
+      <li>Email: {{formData.email}}</li>
+      <li>Phone: {{formData.phone}}</li>
+      <li>NIP: {{formData.nip}}</li>
+      <li>PESEL: {{formData.pesel}}</li>
+      <li>Date of Birth: {{formData.birthDate | date}}</li>
+      <li>City: {{formData.city}}</li>
+      <li>Postal Code: {{formData.postalCode}}</li>
+      <li>Rating: {{formData.rating}}</li>
+    </ul>
+    <button *ngIf="togglePrint" (click)="togglePrint = !togglePrint" type="button" md-raised-button>Turn off printing view</button>
   </md-card-content>
 </md-card>
 

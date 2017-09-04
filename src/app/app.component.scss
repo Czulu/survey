@@ -6,3 +6,10 @@ md-card {
 .full-width {
   width: 100%;
 }
+
+.slider {
+  padding: 35px;
+  md-slider {
+    width: 100%;
+  }
+}

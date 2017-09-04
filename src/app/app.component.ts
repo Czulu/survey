@@ -10,6 +10,7 @@ export class AppComponent {
   formData = window.localStorage.getItem('surveyForm') ? JSON.parse(window.localStorage.getItem('surveyForm')) : new SurveyFormData();
   minDate = new Date(1900, 0, 1);
   maxDate = new Date(1999, 0, 1);
+  togglePrint = false;
   surveyForm = new FormGroup ({
     email: new FormControl(this.formData.email, [
       Validators.required,
@@ -30,12 +31,18 @@ export class AppComponent {
       Validators.pattern(/^\D*(?:\d\D*){10}$/)]),
     pesel: new FormControl(this.formData.pesel, [
       Validators.pattern(/^\D*(?:\d\D*){11}$/)]),
-    birthDate: new FormControl(new Date(this.formData.birthDate))
+    birthDate: new FormControl(new Date(this.formData.birthDate)),
+    rating: new FormControl(this.formData.rating)
   });
 
   onSubmit() {
     const data = JSON.stringify(this.surveyForm.value);
 
     window.localStorage.setItem('surveyForm', data);
+  }
+
+  sliderChange(event) {
+    this.surveyForm.controls['rating'].setValue(event.value);
+    this.surveyForm.markAsDirty();
   }
 }
